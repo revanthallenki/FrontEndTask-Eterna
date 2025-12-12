@@ -1,0 +1,201 @@
+/* ---------------------------------------------------------
+   Tailwind base layers
+--------------------------------------------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------
+   Global theme colors
+--------------------------------------------------------- */
+:root {
+  --bg: #07101a;
+  --card: #0b1620;
+  --row: #07121a;
+  --muted: #95a1ab;
+  --accent: #36d6a8;
+  --divider: rgba(255, 255, 255, 0.06);
+}
+
+/* ---------------------------------------------------------
+   Base layout & font
+--------------------------------------------------------- */
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg), #040e17);
+  color: #fff;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------------------------------------------------------
+   Card surface styles
+--------------------------------------------------------- */
+.card-surface {
+  background: linear-gradient(180deg, var(--card), #071826);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 0px 8px 30px rgba(3, 7, 10, 0.6);
+}
+
+/* ---------------------------------------------------------
+   Table & row styling
+--------------------------------------------------------- */
+.table-row {
+  background: transparent;
+  border-bottom: 1px solid var(--divider);
+  transition: background 0.15s ease;
+}
+
+.table-row:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.015),
+    transparent
+  );
+}
+
+.table-row-min {
+  min-width: 0;
+}
+
+.table-row > * {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* ---------------------------------------------------------
+   Token Avatar
+--------------------------------------------------------- */
+.token-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+
+  /* Mint text */
+  color: rgb(157, 234, 204);
+
+  /* Soft dark gradient + mint inner glow */
+  background: radial-gradient(
+      circle at 35% 30%,
+      rgba(54, 214, 168, 0.08),
+      rgba(0, 0, 0, 0.12)
+    ),
+    linear-gradient(180deg, #062023, #072028);
+
+  border: 1px solid rgba(60, 200, 160, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* symbol text under name */
+.small-symbol {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+/* ---------------------------------------------------------
+   Price badge styling
+--------------------------------------------------------- */
+.price-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+}
+
+/* ---------------------------------------------------------
+   Shimmer loader
+--------------------------------------------------------- */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #0f1724 25%, #0d1320 37%, #0f1724 63%);
+  background-size: 400px 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+
+/* ---------------------------------------------------------
+   Responsive tweaks
+--------------------------------------------------------- */
+@media (max-width: 520px) {
+  .grid-cols-12 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .col-span-4 {
+    grid-column: span 6 / span 6;
+  }
+  .col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+  .col-span-2 {
+    grid-column: span 3 / span 3;
+  }
+
+  .text-right {
+    text-align: left !important;
+  }
+}
+/* price & change transitions */
+.price-badge,
+.col-change {
+  transition: background-color 300ms ease, color 300ms ease, transform 220ms ease;
+}
+
+/* flash states (used via class names from TokenRow) */
+.bg-up {
+  background-color: rgba(38, 166, 154, 0.12) !important;
+  color: #2ed1a7 !important;
+}
+.bg-down {
+  background-color: rgba(255, 96, 96, 0.08) !important;
+  color: #ff8b8b !important;
+}
+
+/* price transitions + flash */
+.price-badge,
+.price-badge.bg-up,
+.price-badge.bg-down {
+  transition: background-color 260ms ease, color 260ms ease, transform 180ms ease;
+}
+
+/* green / red flash utility classes */
+.bg-up {
+  background-color: rgba(54,214,168,0.08) !important;
+  color: #36d6a8 !important;
+}
+.bg-down {
+  background-color: rgba(255,107,107,0.08) !important;
+  color: #ff6b6b !important;
+}
+
+/* card-surface look used by TokenTable wrapper */
+.card-surface {
+  background: linear-gradient(180deg, rgba(7,20,30,0.9), rgba(4,14,20,0.98));
+  border-radius: 16px;
+  box-shadow: 0 6px 28px rgba(2,7,10,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+  overflow: hidden;
+}
+
