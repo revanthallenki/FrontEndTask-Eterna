@@ -90,26 +90,26 @@ This project was designed to closely match a production-grade trading dashboard 
 <table>
   <tr>
     <td align="center">
-      <img src="IMAGE_URL_1" alt="Screenshot 1" width="100%" />
+      <img src="https://github.com/revanthallenki/FrontEndTask-Eterna/blob/main/Assets_eterna/WhatsApp%20Image%202025-12-13%20at%2011.26.43%20AM.jpeg" alt="Screenshot 1" width="100%" />
     </td>
     <td align="center">
-      <img src="IMAGE_URL_2" alt="Screenshot 2" width="100%" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="IMAGE_URL_3" alt="Screenshot 3" width="100%" />
-    </td>
-    <td align="center">
-      <img src="IMAGE_URL_4" alt="Screenshot 4" width="100%" />
+      <img src="https://github.com/revanthallenki/FrontEndTask-Eterna/blob/main/Assets_eterna/WhatsApp%20Image%202025-12-13%20at%2011.26.44%20AM.jpeg" alt="Screenshot 4" width="100%" />
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="IMAGE_URL_5" alt="Screenshot 5" width="100%" />
+      <img src="https://github.com/revanthallenki/FrontEndTask-Eterna/blob/main/Assets_eterna/WhatsApp%20Image%202025-12-13%20at%2011.26.44%20AM%20(1).jpeg" alt="Screenshot 2" width="100%" />
     </td>
     <td align="center">
-      <img src="IMAGE_URL_6" alt="Screenshot 6" width="100%" />
+       <img src="https://github.com/revanthallenki/FrontEndTask-Eterna/blob/main/Assets_eterna/WhatsApp%20Image%202025-12-13%20at%2011.26.44%20AM%20(2).jpeg" alt="Screenshot 3" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/revanthallenki/FrontEndTask-Eterna/blob/main/Assets_eterna/WhatsApp%20Image%202025-12-13%20at%2011.26.45%20AM%20(1).jpeg" alt="Screenshot 5" width="100%" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/revanthallenki/FrontEndTask-Eterna/blob/main/Assets_eterna/WhatsApp%20Image%202025-12-13%20at%2011.26.45%20AM.jpeg" alt="Screenshot 6" width="100%" />
     </td>
   </tr>
 </table>
