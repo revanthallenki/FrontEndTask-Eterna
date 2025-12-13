@@ -51,7 +51,8 @@ export default memo(function TokenRow({ t, onOpen }: { t: Token; onOpen?: () => 
     fontWeight: 700,
     fontSize: 13,
     color: "rgb(157,234,204)",
-    background: "radial-gradient(circle at 35% 30%, rgba(54,214,168,0.08), rgba(0,0,0,0.12)), linear-gradient(180deg,#062023,#072028)",
+    background:
+      "radial-gradient(circle at 35% 30%, rgba(54,214,168,0.08), rgba(0,0,0,0.12)), linear-gradient(180deg,#062023,#072028)",
     border: "1px solid rgba(60,200,160,0.08)",
     boxShadow: "inset 0 1px 0 rgba(255,255,255,0.03)",
     flexShrink: 0,
@@ -65,41 +66,49 @@ export default memo(function TokenRow({ t, onOpen }: { t: Token; onOpen?: () => 
   return (
     <div onClick={() => onOpen?.()} style={rowStyle}>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <div style={avatarStyle} aria-hidden>
-          {avatar}
-        </div>
+        <div style={avatarStyle}>{avatar}</div>
+
         <div style={{ minWidth: 0 }}>
-          <div style={{ fontSize: 15, fontWeight: 600, color: "white", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{t.name}</div>
-          <div style={{ color: "rgba(150,165,176,0.9)", fontSize: 12, marginTop: 6 }}>{t.symbol}</div>
+          <div style={{ fontSize: 15, fontWeight: 600, color: "white" }}>{t.name}</div>
+
+          <div style={{ display: "flex", gap: 8, marginTop: 6, alignItems: "center" }}>
+            <span style={{ color: "rgba(150,165,176,0.9)", fontSize: 12 }}>{t.symbol}</span>
+
+            {t.tag && (
+              <span
+                style={{
+                  fontSize: 10,
+                  padding: "2px 6px",
+                  borderRadius: 6,
+                  background: "rgba(255,255,255,0.08)",
+                  color: "rgba(255,255,255,0.75)",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                }}
+              >
+                {t.tag}
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
-      <div>
-        <TooltipRadix content={`Base pair: ${t.pair}`}>
-          <div style={{ color: "rgba(255,255,255,0.78)", fontSize: 14 }}>{t.pair}</div>
-        </TooltipRadix>
-      </div>
+      <TooltipRadix content={`Base pair: ${t.pair}`}>
+        <div style={{ color: "rgba(255,255,255,0.78)", fontSize: 14 }}>{t.pair}</div>
+      </TooltipRadix>
 
       <div style={{ textAlign: "right" }}>
-        <div className={priceBadge} style={{ display: "inline-block", padding: "6px 10px", borderRadius: 8, transition: "all 260ms ease" }}>
-          ${Number(t.price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+        <div className={priceBadge} style={{ padding: "6px 10px", borderRadius: 8 }}>
+          ${Number(t.price).toFixed(2)}
         </div>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 12 }}>
-        <div style={{ textAlign: "right", fontWeight: 600, color: isUp ? "#36d6a8" : "#ff6b6b" }}>
-          {isUp ? `+${Math.abs(Number(t.change24h)).toFixed(2)}%` : `-${Math.abs(Number(t.change24h)).toFixed(2)}%`}
+      <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 12 }}>
+        <div style={{ fontWeight: 600, color: isUp ? "#36d6a8" : "#ff6b6b" }}>
+          {isUp ? `+${Math.abs(t.change24h).toFixed(2)}%` : `-${Math.abs(t.change24h).toFixed(2)}%`}
         </div>
 
-        <PopoverActions
-          onAddWatch={() => {
-            // demo behavior; you can dispatch an action to add to watchlist
-            // alert(`${t.name} added to watchlist`);
-          }}
-          onTrade={() => {
-            onOpen?.();
-          }}
-        />
+        <PopoverActions onTrade={() => onOpen?.()} />
       </div>
     </div>
   );
