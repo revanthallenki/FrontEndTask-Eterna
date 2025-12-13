@@ -12,7 +12,6 @@ export default function TokenModal({
 }) {
   return (
     <Portal>
-      {/* Overlay */}
       <div
         onClick={onClose}
         style={{
@@ -26,7 +25,6 @@ export default function TokenModal({
           justifyContent: "center",
         }}
       >
-        {/* Modal Card */}
         <div
           onClick={(e) => e.stopPropagation()}
           style={{
@@ -40,7 +38,6 @@ export default function TokenModal({
             color: "white",
           }}
         >
-          {/* Header */}
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div
               style={{
@@ -78,7 +75,6 @@ export default function TokenModal({
             </button>
           </div>
 
-          {/* Stats */}
           <div
             style={{
               display: "grid",
@@ -95,11 +91,10 @@ export default function TokenModal({
               color={token.change24h >= 0 ? "#36d6a8" : "#ff6b6b"}
             />
 
-            <Stat label="Trading Pair" value={token.pair} />
+            <Stat label="Trading Pair" value={token.pair ?? "—"} />
             <Stat label="Status" value={token.tag ?? "ACTIVE"} />
           </div>
 
-          {/* Actions */}
           <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
             <button
               style={{
